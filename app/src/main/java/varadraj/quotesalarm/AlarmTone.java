@@ -11,6 +11,7 @@ public class AlarmTone {
 
     private static AlarmTone instance = new AlarmTone();
     private MediaPlayer mp;
+    private int pausePosition = 0;
 
     private AlarmTone(){}
 
@@ -19,7 +20,7 @@ public class AlarmTone {
     }
 
     public void startAlarmTone(Context context){
-        mp = MediaPlayer.create(context, R.raw.swatkats);
+        mp = MediaPlayer.create(context, R.raw.swatkats);//TODO ALarm Tone Picker
         mp.setLooping(true);
         mp.start();
     }
@@ -27,7 +28,14 @@ public class AlarmTone {
     public void pauseAlarmTone(){
         if (mp.isPlaying()){
             mp.pause();
+            pausePosition = mp.getCurrentPosition();
         }
+    }
+
+    public void resumeAlarmTone(){
+        mp.seekTo(pausePosition);
+        mp.setLooping(true);
+        mp.start();
     }
 
     public void stopAlarmTone(){
