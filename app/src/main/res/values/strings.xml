@@ -3,4 +3,9 @@
     <string name="set_alarm">Set Alarm</string>
     <string name="pause">Pause</string>
     <string name="stop">Stop</string>
+    <string name="check_quote_and_stop_alarm">I\'m Up. Stop Alarm.</string>
+    <string name="type_quote">Type Quote to Stop Alarm</string>
+    <string name  ="keep_typing">Keep Typing...</string>
+    <string name = "good_morning">Good Morning</string>
+    <string name="quote_default">It does not matter who I am or what people think of me. What matters is what my dream is and what I am doing about it.</string>
 </resources>
