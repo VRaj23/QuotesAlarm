@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button startAlarm, launchTimePicker;
     private final int secondsInDay = 86400;
+    TextView tv_nextAlarm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startAlarm.setOnClickListener(this);
         launchTimePicker = (Button)findViewById(R.id.bt_launchTimePicker);
         launchTimePicker.setOnClickListener(this);
+        tv_nextAlarm = (TextView)findViewById(R.id.tv_nextAlarm);
     }
 
 
@@ -50,6 +53,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else {
             setAlarm(secondsInDay - currentTimeInSeconds + alarmTimeInSeconds);
         }
+        String nextAlarm = "Next Alarm ";
+        if (alarmHour < 10){ nextAlarm = nextAlarm+"0"+String.valueOf(alarmHour);}
+        else{nextAlarm = nextAlarm+String.valueOf(alarmHour);}
+        if(alarmMinute < 10){nextAlarm = nextAlarm+":0"+String.valueOf(alarmMinute);}
+        else {nextAlarm = nextAlarm+":"+String.valueOf(alarmMinute);}
+        tv_nextAlarm.setText(nextAlarm);
+
     }
 
     private int getSecondsOfDay(int hour, int minute){
@@ -61,11 +71,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
             case R.id.bt_setalarm:{
                 setAlarm(5);
+                finish();
                 break;
             }
             case R.id.bt_launchTimePicker:{
                 TimePickerFragment timePickerFragment = new TimePickerFragment();
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
                 timePickerFragment.show(getFragmentManager(),"TimePickerFragment");
                 break;
             }
