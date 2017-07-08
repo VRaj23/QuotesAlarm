@@ -17,8 +17,6 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         //Toast.makeText(context,"Alarm Raised",Toast.LENGTH_LONG).show();
         Log.d("debug","onReceive");
-        AlarmTone alarmTone = AlarmTone.getDefaultInstance();
-        alarmTone.startAlarmTone(context);
         Intent alarmActivityIntent = new Intent(context,AlarmActivity.class);
         alarmActivityIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(alarmActivityIntent);

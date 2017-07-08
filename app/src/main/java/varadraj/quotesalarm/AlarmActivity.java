@@ -21,7 +21,7 @@ public class AlarmActivity extends Activity implements View.OnClickListener {
     private TextView tv_quote;
     private Button bt_check_quote_and_stop_alarm;
     private EditText et_quote;
-    private final long delay = 3000;
+    private final long delay = 1000;
     private long lastEditTime = 0;
     Handler handler;
     private  Runnable noTypingChecker;
@@ -29,6 +29,7 @@ public class AlarmActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AlarmTone.getDefaultInstance().startAlarmTone(this);
         setContentView(R.layout.activity_alarmactivity);
         tv_quote = (TextView)findViewById(R.id.tv_quote);
         tv_quote.setText(this.getText(R.string.good_morning));
@@ -41,7 +42,7 @@ public class AlarmActivity extends Activity implements View.OnClickListener {
         noTypingChecker = new Runnable() {
             @Override
             public void run() {
-                if(System.currentTimeMillis() > (lastEditTime + delay)){
+                if(System.currentTimeMillis() > (lastEditTime + delay - 500)){
                     AlarmTone.getDefaultInstance().resumeAlarmTone();
                 }
             }

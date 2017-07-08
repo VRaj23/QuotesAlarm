@@ -19,8 +19,9 @@ public class AlarmTone {
         return instance;
     }
 
+    //TODO set as Alarm not media
     public void startAlarmTone(Context context){
-        mp = MediaPlayer.create(context, R.raw.swatkats);//TODO ALarm Tone Picker
+        mp = MediaPlayer.create(context, R.raw.swatkats);//TODO Alarm Tone Picker
         mp.setLooping(true);
         mp.start();
     }

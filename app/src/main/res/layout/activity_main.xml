@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/darkBackgroundColor"
     tools:context="varadraj.quotesalarm.MainActivity">
 
     <TextView
@@ -27,24 +28,15 @@
         />
 
     <Button
-        android:id="@+id/bt_pauseresume"
+        android:id="@+id/bt_launchTimePicker"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         app:layout_constraintTop_toBottomOf="@+id/bt_setalarm"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="@string/pause"
+        android:text="Launch Time Picker"
         />
-    <Button
-        android:id="@+id/bt_stop"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/bt_pauseresume"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="@string/stop"
-        />
+
 
 </android.support.constraint.ConstraintLayout>
