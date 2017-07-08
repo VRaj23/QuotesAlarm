@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.bt_setalarm:{
-                setAlarm(5); //TODO Date Time Picker
+                setAlarm(5);
                 break;
             }
             case R.id.bt_launchTimePicker:{
